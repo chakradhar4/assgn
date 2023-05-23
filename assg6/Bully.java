@@ -16,10 +16,10 @@ public class Bully {
             int i;
             state[up - 1] = true;
             System.out.println("process " + up + "held election");
-            for (i = up; i < 5; ++i) {
+            for (i = up; i < 5; i++) {
                 System.out.println("election message sent from process" + up + "to process" + (i + 1));
             }
-            for (i = up + 1; i <= 5; ++i) {
+            for (i = up + 1; i <= 5; i++) {
                 if (!state[i - 1]) continue;
                 System.out.println("alive message send from process" + i + "to process" + up);
                 break;
@@ -81,7 +81,7 @@ public class Bully {
                         Bully.state[4] = true;
                         break;
                     }
-                    Bully.up(up);
+                    up(up);
                     break;
                 }
                 case 2: {

@@ -36,7 +36,7 @@ public class BerkeleyAlgorithm {
 						// Calculate the time difference between the server and the node
 						long timeDiff = (new Date().getTime() - clientTime.getTime()) / 2;
 						timeDiffs.add(timeDiff);
-
+						
 						// Close the input/output streams and the socket
 						in.close();
 						out.close();
@@ -99,5 +99,25 @@ public class BerkeleyAlgorithm {
 		calendar.setTime(new Date());
 		calendar.add(Calendar.MILLISECOND, (int) avgTimeDiff);
 		System.out.println("Adjusted time: " + calendar.getTime());
+	}
+}
+
+public class Berkeley {
+	static int port = 3000;
+	public static void main (String[] args) throws Exception {
+		List<Long> timeDiff = new ArrayList<Long>();
+		
+		ServerSocket server = new ServerSocket(port);
+		
+		Thread client = new Thread(new Runnable() {
+			public void run() {
+				Socket client = new Socket("localhost", port);
+				
+				ObjectOutputStream outputS = new ObjectOutputStream(client.getOutputStream());
+				
+				
+				
+			}
+		})
 	}
 }
